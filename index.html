@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astro Pulse - Ancient Intuition Meets AI</title>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Libre+Baskerville&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-color: #181628;
+            --accent-gold: #FFD700;
+            --spiritual-pink: #FF99CC;
+            --shadow-blue: #1F3A93;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            font-family: 'Poppins', sans-serif;
+            color: #FFFFFF;
+        }
+
+        .mystic-title {
+            font-family: 'Libre Baskerville', serif;
+        }
+
+        .feature-card {
+            background: rgba(31, 58, 147, 0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+        }
+
+        .glow-effect {
+            animation: glow 2s infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                box-shadow: 0 0 5px var(--accent-gold);
+            }
+            to {
+                box-shadow: 0 0 20px var(--spiritual-pink);
+            }
+        }
+
+        .bottom-nav {
+            backdrop-filter: blur(10px);
+            background: rgba(24, 22, 40, 0.8);
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- Splash Screen -->
+    <div id="splash-screen" class="fixed inset-0 z-50 flex items-center justify-center bg-[#181628]">
+        <div class="text-center">
+            <lottie-player
+                src="https://assets3.lottiefiles.com/packages/lf20_ysas4vcp.json"
+                background="transparent"
+                speed="1"
+                style="width: 300px; height: 300px;"
+                loop
+                autoplay
+            ></lottie-player>
+            <h1 class="mystic-title text-4xl text-[#FFD700] mt-4">Astro Pulse</h1>
+            <p class="text-[#CFCFCF] mt-2">Ancient Intuition Meets AI</p>
+        </div>
+    </div>
+
+    <!-- Main App Content -->
+    <div id="app-content" class="hidden">
+        <!-- Header -->
+        <header class="p-4 text-center">
+            <h1 class="mystic-title text-3xl text-[#FFD700]">Astro Pulse</h1>
+        </header>
+
+        <!-- Feature Grid -->
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 p-4">
+            <div class="feature-card rounded-xl p-4 text-center cursor-pointer" onclick="showFeature('tarot')">
+                <i class="bi bi-stars text-3xl text-[#FFD700]"></i>
+                <p class="mt-2">Tarot Reading</p>
+            </div>
+            <div class="feature-card rounded-xl p-4 text-center cursor-pointer" onclick="showFeature('palm')">
+                <i class="bi bi-hand-index text-3xl text-[#FFD700]"></i>
+                <p class="mt-2">Palmistry</p>
+            </div>
+            <div class="feature-card rounded-xl p-4 text-center cursor-pointer" onclick="showFeature('face')">
+                <i class="bi bi-person-circle text-3xl text-[#FFD700]"></i>
+                <p class="mt-2">Face Reading</p>
+            </div>
+            <div class="feature-card rounded-xl p-4 text-center cursor-pointer" onclick="showFeature('horoscope')">
+                <i class="bi bi-moon-stars text-3xl text-[#FFD700]"></i>
+                <p class="mt-2">Horoscope</p>
+            </div>
+            <div class="feature-card rounded-xl p-4 text-center cursor-pointer" onclick="showFeature('numerology')">
+                <i class="bi bi-123 text-3xl text-[#FFD700]"></i>
+                <p class="mt-2">Numerology</p>
+            </div>
+            <div class="feature-card rounded-xl p-4 text-center cursor-pointer" onclick="showFeature('crystal')">
+                <i class="bi bi-gem text-3xl text-[#FFD700]"></i>
+                <p class="mt-2">Crystal Guide</p>
+            </div>
+        </div>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav fixed bottom-0 w-full border-t border-[#FFD700]/20 p-4">
+            <div class="flex justify-around items-center">
+                <div class="text-center cursor-pointer" onclick="navigate('home')">
+                    <i class="bi bi-house text-2xl text-[#FFD700]"></i>
+                    <p class="text-xs mt-1">Home</p>
+                </div>
+                <div class="text-center cursor-pointer" onclick="navigate('surprise')">
+                    <i class="bi bi-magic text-2xl text-[#FFD700]"></i>
+                    <p class="text-xs mt-1">Surprise</p>
+                </div>
+                <div class="text-center cursor-pointer" onclick="navigate('ai')">
+                    <i class="bi bi-robot text-2xl text-[#FFD700]"></i>
+                    <p class="text-xs mt-1">Ask AI</p>
+                </div>
+                <div class="text-center cursor-pointer" onclick="navigate('settings')">
+                    <i class="bi bi-gear text-2xl text-[#FFD700]"></i>
+                    <p class="text-xs mt-1">Settings</p>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <script>
+        // Show splash screen for 3 seconds
+        setTimeout(() => {
+            document.getElementById('splash-screen').classList.add('hidden');
+            document.getElementById('app-content').classList.remove('hidden');
+        }, 3000);
+
+        function showFeature(feature) {
+            // Feature implementation would go here
+            alert(`${feature} feature coming soon!`);
+        }
+
+        function navigate(page) {
+            // Navigation implementation would go here
+            alert(`Navigating to ${page}`);
+        }
+
+        // Double tap to exit
+        let lastTap = 0;
+        document.addEventListener('touchend', function(event) {
+            const currentTime = new Date().getTime();
+            const tapLength = currentTime - lastTap;
+            if (tapLength < 500 && tapLength > 0) {
+                if(confirm('Do you want to exit the app?')) {
+                    // In a real app, this would close the app
+                    alert('App would close here');
+                }
+            }
+            lastTap = currentTime;
+        });
+    </script>
+<script>document.body.addEventListener('wheel', e => { if (!e.ctrlKey) return; e.preventDefault(); return }, { passive: false })</script>
+	</body>
+</html>
